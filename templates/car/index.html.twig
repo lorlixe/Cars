@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CarController!
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="example-wrapper">
+		<h1>Liste de voitures</h1>
+
+		<ul class="list-group list-group-flush">
+			{% for car in cars %}
+				<div class="card mb-1">
+					<div class="card-body">
+						<div class="card-title d-flex justify-content-between">
+							<a href="{{ path('app_admin_car_show', {id: car.id}) }}" class="stretched-link link-dark">
+								<h4 class="mb-1">{{ car.name }}</h4>
+							</a>
+							<p>{{ car.places.value }}
+								places</p>
+							<p>{{ car.motor.value}}</p>
+
+
+						</div>
+					</div>
+
+				</div>
+			{% else %}
+				<li>Aucune voiture</li>
+			{% endfor %}
+		</ul>
+		{{ pagerfanta(cars) }}
+	</div>
+{% endblock %}

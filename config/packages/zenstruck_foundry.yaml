@@ -1,0 +1,7 @@
+when@dev:
+  zenstruck_foundry: &dev
+    faker:
+      locale: fr_FR
+
+when@test:
+  <<: *dev
